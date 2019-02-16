@@ -12,7 +12,10 @@ in the
 `V2 <https://docs.readthedocs.io/en/latest/config-file/v2.html>`_ format.
 This means a ``.readthedocs.yml`` file in the project root.
 
-It's very simple. Nothing big to report.
+When I first did this, RTD failed to build, saying it didn't have the
+pylons theme. I forgot about this: installs that need to build the docs
+have to run ``pip install -e .[docs]`` to get the ``extras_requires``.
+I added ``extra_requirements: docs`` to ``.readthedocs.yml`` and pushed.
 
 Other Work
 ==========
@@ -23,3 +26,7 @@ from ``setup.py`` and deleted ``cli.py``. To make sure there are no
 fossils, I re-ran ``pip install -e .``.
 
 After this step I'm switching to doing each of these units on a branch.
+
+Since I now have a
+`docs page <>`_, I edited the GitHub repo's description to include a link to
+the docs, as well as mentioning it in ``README.rst``.
