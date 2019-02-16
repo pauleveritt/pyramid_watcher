@@ -30,3 +30,9 @@ parts that didn't apply (e.g. the watch function.)
 
 His tests have a nice convenience function dependency on
 ``pytest_toolbox`` so I added that to the test dependencies.
+
+Other Work
+==========
+
+If the docs fail to build, Travis should error. I added a sphinx-build
+command to ``.travis.yml``.

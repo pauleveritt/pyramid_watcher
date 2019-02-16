@@ -6,3 +6,4 @@ install:
   - pip install -e .[testing]
 script:
   - py.test --cov-report term-missing --cov app -v
+  - cd docs; sphinx-build -nWT -b dummy . _build/html
