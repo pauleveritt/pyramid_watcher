@@ -29,4 +29,5 @@ After this step I'm switching to doing each of these units on a branch.
 
 Since I now have a
 `docs page <>`_, I edited the GitHub repo's description to include a link to
-the docs, as well as mentioning it in ``README.rst``.
+the docs, as well as mentioning it in ``README.rst``. Hell, I even added a
+badge to the README for the RTD status.

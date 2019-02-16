@@ -2,6 +2,10 @@
 pyramid_watcher
 ===============
 
+.. image:: https://readthedocs.org/projects/pyramid_watcher/badge/?version=latest
+    :target: https://readthedocs.org/projects/pyramid_watcher/?badge=latest
+    :alt: Documentation Status
+
 Want to watch your local files and take actions, including reloading a
 browser, when add/edit/change modifications are detected?
 pyramid_watcher works in a background thread and lets you register
