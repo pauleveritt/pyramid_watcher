@@ -51,6 +51,7 @@ setup(
     extras_require={
         'docs': docs_require,
         'testing': tests_require,
+
         'sample': sample_requires
     },
     entry_points={
