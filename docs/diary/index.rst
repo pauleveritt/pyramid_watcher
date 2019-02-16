@@ -9,5 +9,7 @@ aspects (packaging, architecture, Pyramid integration, etc.)
 .. toctree::
     :maxdepth: 1
 
+    04-hello-testing
+    03-readthedocs
     02-sphinx
     01-packaging

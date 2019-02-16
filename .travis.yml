@@ -1,0 +1,11 @@
+language: python
+python:
+  - '3.5'
+  - '3.6'
+  - '3.7'
+cache: pip
+install:
+  - pip install -e .[testing]
+script:
+  - set -e
+  - py.test --cov-report term-missing --cov app -v
