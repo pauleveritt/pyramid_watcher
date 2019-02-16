@@ -22,6 +22,7 @@ tests_require = [
     'pytest',
     'pytest-cov',
     'mock',
+    'pytest_toolbox'
 ]
 
 sample_requires = [
