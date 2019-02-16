@@ -6,6 +6,10 @@
 
 ## Soon
 
+- Better logger in the watchgod stuff
+
+- Don't hardwire `watchgod_watcher.DefaultDirWatcher` in threadrunner
+
 ## Someday
 
 - watchgod watchers
