@@ -54,11 +54,6 @@ setup(
 
         'sample': sample_requires
     },
-    entry_points={
-        "console_scripts": [
-            "watcher = pyramid_watcher.cli:main",
-        ],
-    },
     zip_safe=False,
     keywords='watch reload',
     classifiers=[

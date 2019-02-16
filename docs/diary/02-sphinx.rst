@@ -23,3 +23,6 @@ PyCharm:
 - Choose ``Run 'index.html'``
 
 PyCharm runs a local HTTP server and launches a browser.
+
+Finally, I started writing entries in ``CHANGES.txt``. Hopefully I'll
+get back to using ``gitchangelog`` to generate that automatically.
