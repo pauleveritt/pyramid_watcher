@@ -1,5 +1,3 @@
-from importlib import resources
-
 from pathlib import Path
 
 from pyramid_watcher.threadrunner import ThreadRunner
