@@ -7,5 +7,4 @@ cache: pip
 install:
   - pip install -e .[testing]
 script:
-  - set -e
   - py.test --cov-report term-missing --cov app -v
