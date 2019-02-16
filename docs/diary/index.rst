@@ -9,6 +9,7 @@ aspects (packaging, architecture, Pyramid integration, etc.)
 .. toctree::
     :maxdepth: 1
 
+    06-threadrunner
     05-watchers
     04-hello-testing
     03-readthedocs
