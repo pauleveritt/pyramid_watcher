@@ -10,7 +10,7 @@ aspects (packaging, architecture, Pyramid integration, etc.)
     :maxdepth: 1
 
     08-showchanges
-    07-sampleapp1
+    07-echoapp
     06-threadrunner
     05-watchers
     04-hello-testing
