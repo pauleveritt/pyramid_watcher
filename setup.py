@@ -22,7 +22,8 @@ tests_require = [
     'pytest',
     'pytest-cov',
     'mock',
-    'pytest_toolbox'
+    'pytest_toolbox',
+    'WebTest'
 ]
 
 sample_requires = [
@@ -67,4 +68,9 @@ setup(
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
     ],
+    entry_points={
+        'paste.app_factory': [
+            'echo = pyramid_watcher.samples.echo:main',
+        ],
+    },
 )
