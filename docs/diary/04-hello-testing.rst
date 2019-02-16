@@ -76,14 +76,21 @@ in the root:
     language: python
     python:
       - '3.5'
-      - '3.6'
-      - '3.7'
     cache: pip
     install:
       - pip install -e .[testing]
     script:
-      - set -e
       - py.test --cov-report term-missing --cov app -v
+
+.. note::
+
+    I'll add in 3.6 and 3.7 later, once I get Travis setup well.
 
 I logged into Travis, clicked the ``+``, and linked Travis to this repo.
 I then committed and pushed. Travis built on all 3 interpreters.
+
+After a couple of failures, it appeared the ``testpaths = pyramid_watcher``
+line in my ``pytest.ini`` was causing tests to fail. I replaced that line
+with ``norecursedirs = .git docs _build tmp* .venv`` which I had used on
+previous projects. Not the same thing, so I'll have to get back to this
+later.
