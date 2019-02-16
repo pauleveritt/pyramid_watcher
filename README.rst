@@ -14,6 +14,12 @@ handlers.
 This package is written specifically as a start to a static-site
 generator which watches Markdown files.
 
+Docs
+====
+
+Docs for pyramid_watcher are hosted
+`on ReadTheDocs <https://pyramid-watcher.readthedocs.io/en/latest/>`_.
+
 Scanning
 ========
 
