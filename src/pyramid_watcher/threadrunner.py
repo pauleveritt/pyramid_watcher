@@ -23,13 +23,11 @@ class ThreadRunner(Thread):
         self.watched_path = watched_path
         self.interval = interval
         self.lock = Lock()
-        self.enabled = True
+        self.enabled = False
         self.watcher = DefaultDirWatcher(str(watched_path))
 
     def run(self):
         while self.enabled:
-            # with self.lock:
-            #     path = str(self.watched_path)
             for changes in self.watcher.check():
                 self.callback(changes)
             sleep(self.interval)
