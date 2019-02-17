@@ -10,7 +10,7 @@ class ChangeHandler:
     def __init__(self, config: Configurator):
         self.config = config
 
-    def __call__(self, changeset: List[ChangeSet]):
+    def __call__(self, changeset: ChangeSet):
         # TODO Got into a circular reference, quick fix as local
         from pyramid_watcher.samples.echo import SiteRoot
         root: SiteRoot = self.config.registry.site_root

@@ -50,3 +50,21 @@ View and Template
 
 With the changes now being stored on the site root, I changed the
 view to extract it and the template to render it.
+
+Some Refactoring
+================
+
+Stuff wasn't in the "right" place. I had type hinting defined in the
+sample application, so moved it to place the originates it -- the
+threadrunner which sends changes to the callback.
+
+I defined a dataclass ``ChangeSet`` to represent a timestamp and a set of
+``ChangeSetEntry`` items. A ``ChangeSetEntry`` is the enum for the kind
+of change and a string for the path. (Later, hopefully, a ``Path``.)
+
+I then changed ``threadrunner`` to make an instance of ``ChangeSet`` and
+pass it to the callback.
+
+With proper "ChangeSet", I modified the Jinja2 template to display the
+timestamp. I also put the type annotations on the intermediate handlers,
+to make it clear what is being passed around.

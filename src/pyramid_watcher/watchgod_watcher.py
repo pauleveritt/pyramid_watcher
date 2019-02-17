@@ -9,7 +9,7 @@ import os
 import re
 from enum import IntEnum
 
-logger = logging.getLogger('watchgod.watcher')
+log = logging.getLogger('watchgod.watcher')
 
 
 class FileChangeInfo(IntEnum):
@@ -51,7 +51,7 @@ class AllWatcher:
             self._walk(self.root_path, changes, new_files)
         except OSError as e:
             # happens when a directory has been deleted between checks
-            logger.warning('error walking file system: %s %s', e.__class__.__name__, e)
+            log.warning('error walking file system: %s %s', e.__class__.__name__, e)
 
         # look for deleted
         deleted = self.files.keys() - new_files.keys()

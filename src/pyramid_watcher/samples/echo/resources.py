@@ -1,13 +1,7 @@
 from dataclasses import dataclass, field
 from typing import Optional, List
 
-from pyramid_watcher.watchgod_watcher import FileChangeInfo
-
-
-@dataclass
-class ChangeSet:
-    change_type: FileChangeInfo
-    file_path: str
+from pyramid_watcher.threadrunner import ChangeSet
 
 
 @dataclass
@@ -17,7 +11,7 @@ class SiteRoot:
     __name__: str = ''
     __parent__: Optional[str] = None
 
-    def handle_changeset(self, changeset=List[ChangeSet]):
+    def handle_changeset(self, changeset: ChangeSet):
         self.changesets.append(changeset)
 
 
