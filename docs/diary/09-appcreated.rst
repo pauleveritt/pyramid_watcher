@@ -1,6 +1,6 @@
-========================
-ApplicationCreated Event
-========================
+================================
+09: ``ApplicationCreated`` Event
+================================
 
 My tests are hanging. Clearly related to including my ``pyramid_watcher``
 plugin during startup. What to do?
@@ -16,7 +16,7 @@ In this step I'll wire up that event and then get the tests back in shape.
 ``src/pyramid_watcher/subscribers.py``
 ======================================
 
-It's common for Pyramid extensions to subscribe to events and thus to put
+It's common for Pyramid addons to subscribe to events and thus to put
 these subscribers prominently in a ``subscribers.py`` file.
 
 I'll actually start with ``tests/unit/test_subscribers.py`` to make sure

@@ -22,7 +22,7 @@ We'll also provide a default that can be overridden.
 ``directives.py``
 =================
 
-I'll start with a ``directives.py`` file in my extension directory. The
+I'll start with a ``directives.py`` file in my addon directory. The
 pattern will be:
 
 - Change handlers are instances of a callable class

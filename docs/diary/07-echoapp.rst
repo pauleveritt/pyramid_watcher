@@ -24,7 +24,7 @@ few other things:
 - ``config.scan`` for views
 
 - ``config.scan`` the (soon to be written) ``includeme`` in our
-  extension
+  addon
 
 ``resources.py``
 ================

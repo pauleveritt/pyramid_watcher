@@ -2,7 +2,7 @@
 Diary
 =====
 
-Want to see how a Pyramid extension is built? This section documents each
+Want to see how a Pyramid addon is built? This section documents each
 unit of work, including where Michael Merickel gives advice for various
 aspects (packaging, architecture, Pyramid integration, etc.)
 
