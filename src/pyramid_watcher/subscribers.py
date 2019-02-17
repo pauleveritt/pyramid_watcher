@@ -12,15 +12,18 @@ def watcher_handler(changes):
 
 @subscriber(ApplicationCreated)
 def start_threadrunner(event: ApplicationCreated):
+    registry = event.app.registry
+
+    # Get the directory to watch from the config settings
+    content_root = Path(registry.settings.get('content_root'))
+
     # Make the watcher and put it in the registry
     handler = watcher_handler
-    dir_to_watch = Path('../../../../docs')
-    watcher = ThreadRunner(handler, dir_to_watch)
-    event.app.registry['watcher'] = watcher
+    watcher = ThreadRunner(handler, content_root)
+    registry['watcher'] = watcher
 
     try:
         # Tell the watcher to start running
-        pass
-        watcher.run()
+        watcher.start()
     except KeyboardInterrupt:
         log.info('Shutting down file watcher')

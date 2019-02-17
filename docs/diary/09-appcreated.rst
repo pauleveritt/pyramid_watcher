@@ -37,4 +37,12 @@ list of paths to watch as part of startup, rather than only coming from
 the config file.
 
 All well and good, but it still didn't stop the problem with the
-application hanging.
+application hanging. Turns out my use of ``watcher.run()`` was the
+problem. With Python threading, you call ``.start()`` which calls
+``.run()`` in a thread. Fixed that.
+
+I got tired of guessing where the content being watched was, so I made it
+get the target directory from a ``content_root`` config file setting.
+
+These tests are hard to write. I'm going to punt and get advice from
+Michael.
