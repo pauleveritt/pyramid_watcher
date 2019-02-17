@@ -9,6 +9,7 @@ aspects (packaging, architecture, Pyramid integration, etc.)
 .. toctree::
     :maxdepth: 1
 
+    10-pluggable-callback
     09-appcreated
     08-showchanges
     07-echoapp
