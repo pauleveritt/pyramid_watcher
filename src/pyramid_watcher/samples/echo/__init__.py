@@ -1,7 +1,7 @@
 from pyramid.config import Configurator
 from pyramid_watcher.samples.echo.handlers import ChangeHandler
 
-from .resources import bootstrap
+from .resources import bootstrap, SiteRoot
 
 
 def main(global_config, **settings):
@@ -12,6 +12,10 @@ def main(global_config, **settings):
         config.include('pyramid_jinja2')
         config.include('pyramid_watcher')
         config.scan()
+
+        # Stash an instance of the SiteRoot in the registry
+        site_root = SiteRoot(title='Home Page')
+        config.registry.site_root = site_root
 
         # Make a custom change handler instance and register it
         ch = ChangeHandler(config)

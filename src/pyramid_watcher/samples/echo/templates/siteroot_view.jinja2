@@ -4,7 +4,14 @@
     <h1 class="title">
         {{ title }}
     </h1>
-    <p class="subtitle">
-        My first website!
-    </p>
+    <h4>Changesets</h4>
+    <ul>
+        {% for changeset in changesets %}
+            <li>Change batch [timestamp here later]:
+                <ul>
+                    <li>{{ changeset[0] }} file at {{ changeset[1] }}</li>
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock content %}
