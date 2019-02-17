@@ -6,10 +6,6 @@ from pyramid_watcher.threadrunner import ThreadRunner
 log = __import__('logging').getLogger(__name__)
 
 
-def watcher_handler(changes):
-    log.info('Changes to files: ' + str(changes))
-
-
 @subscriber(ApplicationCreated)
 def start_threadrunner(event: ApplicationCreated):
     registry = event.app.registry
@@ -17,8 +13,10 @@ def start_threadrunner(event: ApplicationCreated):
     # Get the directory to watch from the config settings
     content_root = Path(registry.settings.get('content_root'))
 
+    # Get the change handler from the registry settings
+    handler = registry.settings['pyramid_watcher_handler']
+
     # Make the watcher and put it in the registry
-    handler = watcher_handler
     watcher = ThreadRunner(handler, content_root)
     registry['watcher'] = watcher
 
