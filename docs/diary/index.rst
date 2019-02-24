@@ -9,6 +9,7 @@ aspects (packaging, architecture, Pyramid integration, etc.)
 .. toctree::
     :maxdepth: 1
 
+    12-refactor
     11-store-changes
     10-pluggable-callback
     09-appcreated
