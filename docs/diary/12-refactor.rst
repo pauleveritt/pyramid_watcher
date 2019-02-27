@@ -5,6 +5,13 @@
 I have some stuff in place. The code has grown somewhat organically but
 is a bit messy. Let's take a moment to do some refactoring.
 
+``models.py``
+=============
+
+I use type annotations which means I import classes. This has led to circular
+references. I will try putting some of these dataclasses into a ``models.py``
+file. It's a common pattern in Pyramid.
+
 Manual, Explicit Configuration
 ==============================
 
@@ -18,15 +25,15 @@ I am moving this to a model where all configuration is done in
 no more ``config.scan()``. with this you can see the whole picture just by
 reading that file's ``includeme()``.
 
-    - Extensive docstrings
+Docstrings and Comments
+=======================
 
-    - Much better type hinting
+Added extensive docstrings (and comments) to help understanding.
 
-    - Run ``mypy`` and fix
+Frozen Dataclasses
+==================
 
-    - Changeset -> Changeset
+Premature optimization but it actually fits. These changeset instances are
+like a log and should never change.
 
-    - Use immutable and slots in Changeset dataclasses
-
-    - Convert JS to ES6
 

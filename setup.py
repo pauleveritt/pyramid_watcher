@@ -26,6 +26,10 @@ tests_require = [
     'WebTest'
 ]
 
+dev_requires = [
+    'mypy'
+]
+
 sample_requires = [
     'pyramid_jinja2',
     'waitress',

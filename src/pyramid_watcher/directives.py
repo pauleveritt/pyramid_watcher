@@ -1,16 +1,18 @@
 from typing import Callable
 
 from pyramid.config import Configurator
-from pyramid_watcher.threadrunner import ChangeSet
+
+from .models import Changeset
 
 log = __import__('logging').getLogger(__name__)
 
 
 class ChangeHandler:
+    """ Simple implementation to log when filesystem changes occur """
     def __init__(self, config: Configurator):
         self.config = config
 
-    def __call__(self, changes: ChangeSet):
+    def __call__(self, changes: Changeset):
         log.info('Changes: ' + str(changes))
 
 

@@ -1,17 +1,17 @@
 from dataclasses import dataclass, field
 from typing import Optional, List
 
-from pyramid_watcher.threadrunner import ChangeSet
+from pyramid_watcher.models import Changeset
 
 
 @dataclass
 class SiteRoot:
     title: str
-    changesets: List[ChangeSet] = field(default_factory=list)
+    changesets: List[Changeset] = field(default_factory=list)
     __name__: str = ''
     __parent__: Optional[str] = None
 
-    def handle_changeset(self, changeset: ChangeSet):
+    def handle_changeset(self, changeset: Changeset):
         self.changesets.append(changeset)
 
 

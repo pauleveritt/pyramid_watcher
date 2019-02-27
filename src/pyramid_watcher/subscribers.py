@@ -1,13 +1,13 @@
 from pathlib import Path
 
-from pyramid.events import ApplicationCreated, subscriber
+from pyramid.events import ApplicationCreated
 from pyramid_watcher.threadrunner import ThreadRunner
 
 log = __import__('logging').getLogger(__name__)
 
 
-@subscriber(ApplicationCreated)
 def start_threadrunner(event: ApplicationCreated):
+    """ Event handler to run at startup time to fire up a watcher """
     registry = event.app.registry
 
     # Get the directory to watch from the config settings
