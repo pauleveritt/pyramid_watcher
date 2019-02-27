@@ -2,34 +2,17 @@
 
 ## Now
 
-- Refactor
-
-    - Unwind decorators and includes and scans, and manually wire up 
-      everything in __init__.py, with copious comments
-      
-    - Extensive docstrings
-    
-    - Much better type hinting
-    
-    - Run ``mypy`` and fix
-    
-    - Changeset -> Changeset
-    
-    - Use immutable and slots in Changeset dataclasses  
-    
-    - Convert JS to ES6
-
 ## Next
 
 ## Soon
 
-- Mark as 3.6+ and include dataclass backport
-
-- Better logger in the watchgod stuff
-
 - Don't hardwire `watchgod_watcher.DefaultDirWatcher` in threadrunner
 
 ## Someday
+
+- Mark as 3.6+ and include dataclass backport
+
+- Better logger in the watchgod stuff
 
 - watchgod watchers
     - Better docstrings and comments
@@ -47,3 +30,14 @@
 
 ## Done
 
+- Refactor
+
+    - Unwind decorators and includes and scans, and manually wire up 
+      everything in __init__.py, with copious comments
+      
+    - Extensive docstrings
+    
+    - Changeset -> Changeset
+    
+    - Use immutable in Changeset dataclasses  
+    
