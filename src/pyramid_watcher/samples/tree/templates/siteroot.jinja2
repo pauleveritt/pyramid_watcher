@@ -2,12 +2,15 @@
 
 {% block content %}
     <h1 class="title">
-        {{ context.title }}
+        Document: {{ context.title }}
     </h1>
     <h2>Children</h2>
     <ul>
         {% for child in children %}
-            <li>{{ child.title }}</li>
+            <li>
+                <a href="{{ 'hello' }}">{{ child.title }}</a>
+            </li>
         {% endfor %}
     </ul>
 {% endblock content %}
+
