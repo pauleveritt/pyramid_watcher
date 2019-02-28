@@ -27,4 +27,4 @@ class SiteRoot:
                 filename = Path(dirpath) / Path(f)
                 extension = filename.suffix[1:]
                 processor = PROCESSORS[extension]
-                resource = processor(filename)
+                resource = processor(filename, content_root)

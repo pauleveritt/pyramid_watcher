@@ -32,6 +32,7 @@ sample_requires = [
     'waitress',
     'plaster_pastedeploy',
     'pydantic',
+    'ruamel.yaml',
     'mistletoe'
 ]
 
