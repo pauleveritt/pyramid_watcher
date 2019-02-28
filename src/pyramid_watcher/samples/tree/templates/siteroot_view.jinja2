@@ -2,18 +2,12 @@
 
 {% block content %}
     <h1 class="title">
-        {{ title }}
+        {{ context.title }}
     </h1>
-    <h4>Changesets</h4>
+    <h2>Children</h2>
     <ul>
-        {% for changeset in changesets %}
-            <li>Change batch {{ changeset.timestamp }}:
-                <ul>
-                    {% for change in changeset.changes %}
-                        <li>{{ change.change_type.name }} file at {{ change.file_path }}</li>
-                    {% endfor %}
-                </ul>
-            </li>
+        {% for child in children %}
+            <li>{{ child.title }}</li>
         {% endfor %}
     </ul>
 {% endblock content %}
