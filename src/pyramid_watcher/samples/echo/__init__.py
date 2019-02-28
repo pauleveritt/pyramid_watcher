@@ -1,3 +1,12 @@
+"""
+
+Echo Demo
+
+Simple demo to have one view which shows changes to files in the content
+area.
+
+"""
+
 from pyramid.config import Configurator
 from pyramid_watcher.samples.echo.handlers import ChangeHandler
 

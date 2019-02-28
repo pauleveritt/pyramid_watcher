@@ -26,9 +26,6 @@ tests_require = [
     'WebTest'
 ]
 
-dev_requires = [
-    'mypy'
-]
 
 sample_requires = [
     'pyramid_jinja2',
@@ -75,6 +72,7 @@ setup(
     entry_points={
         'paste.app_factory': [
             'echo = pyramid_watcher.samples.echo:main',
+            'tree = pyramid_watcher.samples.tree:main',
         ],
     },
 )

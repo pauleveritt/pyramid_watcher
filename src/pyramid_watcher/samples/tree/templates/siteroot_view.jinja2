@@ -1,0 +1,19 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+    <h1 class="title">
+        {{ title }}
+    </h1>
+    <h4>Changesets</h4>
+    <ul>
+        {% for changeset in changesets %}
+            <li>Change batch {{ changeset.timestamp }}:
+                <ul>
+                    {% for change in changeset.changes %}
+                        <li>{{ change.change_type.name }} file at {{ change.file_path }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

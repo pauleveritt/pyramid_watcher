@@ -27,4 +27,4 @@ class Changeset:
     """ A collection of filesystem changes during an interval """
 
     timestamp: datetime
-    changes2: Set[ChangesetEntry] = field(default_factory=set)
+    changes: Set[ChangesetEntry] = field(default_factory=set)
