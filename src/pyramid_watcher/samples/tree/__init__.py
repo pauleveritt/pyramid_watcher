@@ -14,7 +14,6 @@ of resources. This example:
 from pyramid.config import Configurator
 from pyramid.request import Request
 
-from .handlers import ChangeHandler
 from .resources.siteroot import SiteRoot
 
 
@@ -39,6 +38,5 @@ def main(global_config, **settings):
         siteroot.initialize(config.registry.settings['content_root'])
 
         # Make a custom change handler instance and register it
-        ch = ChangeHandler(config)
-        config.register_changehandler(ch)
+        config.register_changehandler(siteroot.handle_changeset)
     return config.make_wsgi_app()
