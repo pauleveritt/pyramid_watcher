@@ -1,8 +1,10 @@
 from dataclasses import dataclass, field
 from os import walk
+from pathlib import Path
 from typing import Optional, List
 
 from pyramid_watcher.models import Changeset
+from .processors import PROCESSORS
 
 log = __import__('logging').getLogger(__name__)
 
@@ -21,6 +23,8 @@ class SiteRoot:
         """ Called at startup time, read all content into the resource tree """
 
         for (dirpath, dirs, files) in walk(content_root):
-            log.info('Blah')
-            for filename in files:
-                log.info('Found file:' + filename)
+            for f in files:
+                filename = Path(dirpath) / Path(f)
+                extension = filename.suffix[1:]
+                processor = PROCESSORS[extension]
+                resource = processor(filename)
