@@ -33,7 +33,7 @@ def dummy_root() -> Root:
 @fixture
 def dummy_changeset() -> Changeset:
     now = datetime.now()
-    ce = ChangesetEntry(FileChangeInfo.added, '/path/added')
+    ce = ChangesetEntry(FileChangeInfo.added, Path('/path/added'))
     cs = Changeset(now, {ce})
     return cs
 
