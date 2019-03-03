@@ -11,5 +11,5 @@ class ChangeHandler:
         self.config = config
 
     def __call__(self, changeset: Changeset):
-        root: SiteRoot = self.config.registry.site_root
+        root: SiteRoot = self.config.registry.siteroot
         root.handle_changeset(changeset)

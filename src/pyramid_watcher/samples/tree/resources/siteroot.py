@@ -41,5 +41,5 @@ class SiteRoot(Mapping):
                 filename = Path(dirpath) / Path(f)
                 extension = filename.suffix[1:]
                 processor = PROCESSORS[extension]
-                resource = processor(filename, content_root)
+                resource = processor(filename, content_root, self)
                 self._dict[resource.__name__] = resource

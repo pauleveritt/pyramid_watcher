@@ -8,10 +8,11 @@ log = __import__('logging').getLogger(__name__)
 
 @view_config(context=SiteRoot, renderer='templates/siteroot.jinja2')
 def siteroot(context: SiteRoot, request):
+    children = list(context.values())
     return dict(
         project='Tree Sample',
         context=context,
-        children=context.values()
+        children=children
     )
 
 

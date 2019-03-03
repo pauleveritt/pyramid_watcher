@@ -15,5 +15,5 @@ class SiteRoot:
         self.changesets.append(changeset)
 
 
-def bootstrap(request):
-    return request.registry.site_root
+def bootstrap(request) -> SiteRoot:
+    return request.registry.siteroot

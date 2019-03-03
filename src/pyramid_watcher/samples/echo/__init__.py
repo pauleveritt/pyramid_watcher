@@ -23,8 +23,8 @@ def main(global_config, **settings):
         config.scan()
 
         # Stash an instance of the SiteRoot in the registry
-        site_root = SiteRoot(title='Home Page')
-        config.registry.site_root = site_root
+        siteroot = SiteRoot(title='Home Page')
+        config.registry.siteroot = siteroot
 
         # Make a custom change handler instance and register it
         ch = ChangeHandler(config)
