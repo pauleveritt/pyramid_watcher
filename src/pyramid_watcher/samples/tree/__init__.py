@@ -37,6 +37,7 @@ def main(global_config, **settings):
         # Tell the SiteRoot to do its initial scan
         siteroot.initialize(config.registry.settings['content_root'])
 
-        # Make a custom change handler instance and register it
+        # Let the siteroot handle changesets
         config.register_changehandler(siteroot.handle_changeset)
+
     return config.make_wsgi_app()

@@ -8,7 +8,6 @@ area.
 """
 
 from pyramid.config import Configurator
-from pyramid_watcher.samples.echo.handlers import ChangeHandler
 
 from .resources import bootstrap, SiteRoot
 
@@ -26,7 +25,7 @@ def main(global_config, **settings):
         siteroot = SiteRoot(title='Home Page')
         config.registry.siteroot = siteroot
 
-        # Make a custom change handler instance and register it
-        ch = ChangeHandler(config)
-        config.register_changehandler(ch)
+        # Let the siteroot handle changesets
+        config.register_changehandler(siteroot.handle_changeset)
+
     return config.make_wsgi_app()
