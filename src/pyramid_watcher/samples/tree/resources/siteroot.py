@@ -1,4 +1,4 @@
-from collections.abc import Mapping
+from collections import Mapping
 from dataclasses import dataclass, field
 from os import walk
 from pathlib import Path

@@ -24,5 +24,4 @@ def app(tmpdir):
     from pyramid_watcher.samples.echo import main
 
     app = main({}, content_root=str(tmpdir))
-    app.registry['watcher'].stop()
     yield app
