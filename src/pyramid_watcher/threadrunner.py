@@ -7,7 +7,7 @@ from datetime import datetime
 from pathlib import Path
 from threading import Thread, Lock
 from time import sleep
-from typing import Callable
+from typing import Callable, Optional
 
 from .models import Changeset, ChangesetEntry
 from .watchgod_watcher import DefaultDirWatcher
@@ -20,13 +20,13 @@ class ThreadRunner(Thread):
     def __init__(self,
                  callback: Callable,
                  watched_path: Path,
-                 interval=1):
+                 interval: Optional[int]):
         super().__init__()
         self.callback = callback
         self.watched_path = watched_path
         self.interval = interval
         self.lock = Lock()
-        self.enabled = True
+        self.enabled = True if interval else False
         self.watcher = DefaultDirWatcher(str(watched_path))
 
     def run(self):
