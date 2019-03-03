@@ -16,25 +16,23 @@ from .document import Document
 log = __import__('logging').getLogger(__name__)
 
 
-def md(filename: Path, content_root: Path, root) -> Document:
+def md(target: Path, content_root: Path, parent) -> Document:
     """ Read the frontmatter and markdown """
 
-    with filename.open() as f:
-        file_content = f.read()
-        yaml_string, markdown_string = file_content.split('---\n')
+    file_content = target.open().read()
+    yaml_string, markdown_string = file_content.split('---\n')
 
-        # Handle the frontmatter
-        frontmatter = (load(yaml_string, Loader=Loader) or {})
+    # Handle the frontmatter
+    frontmatter = (load(yaml_string, Loader=Loader) or {})
 
-        # Parse the Markdown into HTML
-        body = markdown(markdown_string)
+    # Parse the Markdown into HTML
+    body = markdown(markdown_string)
 
-        # Make and return a resource
-        name = filename.relative_to(content_root).stem
-        parent = root
-        resource = Document(__name__=name, __parent__=parent, body=body, **frontmatter)
+    # Make and return a resource
+    name = target.relative_to(content_root).stem
+    resource = Document(__name__=name, __parent__=parent, body=body, **frontmatter)
 
-        return resource
+    return resource
 
 
 PROCESSORS = dict(

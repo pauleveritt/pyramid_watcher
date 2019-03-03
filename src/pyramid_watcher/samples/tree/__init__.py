@@ -11,6 +11,8 @@ of resources. This example:
 
 """
 
+from pathlib import Path
+
 from pyramid.config import Configurator
 from pyramid.request import Request
 
@@ -35,7 +37,8 @@ def main(global_config, **settings):
         config.registry.root = root
 
         # Tell the Root to do its initial scan
-        root.initialize(config.registry.settings['content_root'])
+        content_root = Path(config.registry.settings['content_root'])
+        root.initialize(content_root)
 
         # Let the root handle changesets
         config.register_changehandler(root.handle_changeset)

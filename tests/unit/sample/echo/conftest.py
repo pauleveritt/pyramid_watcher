@@ -1,12 +1,10 @@
 from datetime import datetime
 
-from pytest import fixture
 from pyramid.testing import DummyRequest, DummyResource, setUp, tearDown
-
 from pyramid_watcher.models import Changeset, ChangesetEntry
-from pyramid_watcher.watchgod_watcher import FileChangeInfo
-
 from pyramid_watcher.samples.echo.resources import Root
+from pyramid_watcher.watchgod_watcher import FileChangeInfo
+from pytest import fixture
 
 
 @fixture
