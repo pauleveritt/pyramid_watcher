@@ -7,7 +7,7 @@
     <h4>Changesets</h4>
     <ul>
         {% for changeset in changesets %}
-            <li>Change batch {{ changeset.timestamp }}:
+            <li class="changeset">Change batch {{ changeset.timestamp }}:
                 <ul>
                     {% for change in changeset.changes %}
                         <li>{{ change.change_type.name }} file at {{ change.file_path }}</li>

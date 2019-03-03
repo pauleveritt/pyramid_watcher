@@ -1,6 +1,6 @@
 from pytest import fixture
-
 from pytest_toolbox import mktree
+from webtest import TestApp
 
 
 tree = {
@@ -19,7 +19,7 @@ tree = {
 
 
 @fixture
-def app(tmpdir):
+def app(tmpdir) -> TestApp:
     mktree(tmpdir, tree)
     from pyramid_watcher.samples.echo import main
 

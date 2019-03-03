@@ -25,7 +25,7 @@ def start_threadrunner(event: ApplicationCreated):
 
     # Make the watcher and put it in the registry
     watcher = ThreadRunner(handler, content_root, interval=int(watch_interval))
-    registry['watcher'] = watcher
+    registry.watcher = watcher
 
     try:
         # Tell the watcher to start running

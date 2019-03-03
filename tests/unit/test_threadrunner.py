@@ -8,6 +8,6 @@ def test_construction():
         return changes
 
     fake_path = Path('/tmp')
-    tr = ThreadRunner(fake_callback, watched_path=fake_path)
+    tr = ThreadRunner(fake_callback, watched_path=fake_path, interval=1)
     assert fake_callback == tr.callback
     assert fake_path == tr.watched_path
