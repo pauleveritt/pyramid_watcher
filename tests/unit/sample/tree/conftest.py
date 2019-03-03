@@ -1,4 +1,5 @@
 from datetime import datetime
+from pathlib import Path
 
 from pytest import fixture
 from pyramid.testing import DummyRequest, DummyResource, setUp, tearDown
@@ -7,6 +8,21 @@ from pyramid_watcher.models import Changeset, ChangesetEntry
 from pyramid_watcher.watchgod_watcher import FileChangeInfo
 
 from pyramid_watcher.samples.tree.resources.root import Root
+from pytest_toolbox import mktree
+
+
+@fixture
+def dummy_tmpdir(tmpdir):
+    tree = {
+        'hello.md': 'title: Some Dummy Doc\n---\nYou are not *here*.',
+        'broken.md': 'There is no *frontmatter*',
+        'foo': {
+            'index.md': 'title: Folder Doc\n---\nYou are not *here*.',
+            'about.md': 'title: Some Dummy Doc\n---\nWe are *here*.',
+        }
+    }
+    mktree(tmpdir, tree)
+    yield Path(str(tmpdir))
 
 
 @fixture

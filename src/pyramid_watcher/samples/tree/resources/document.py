@@ -7,10 +7,9 @@ HTML body. Can originate from ``.md`` files.
 
 from dataclasses import dataclass
 
+from .base_resource import Resource
+
 
 @dataclass
-class Document:
-    __parent__: str
-    title: str
+class Document(Resource):
     body: str
-    __name__: str = ''
