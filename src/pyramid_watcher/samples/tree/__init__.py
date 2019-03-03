@@ -14,11 +14,11 @@ of resources. This example:
 from pyramid.config import Configurator
 from pyramid.request import Request
 
-from .resources.siteroot import SiteRoot
+from .resources.root import Root
 
 
 def root_factory(request: Request):
-    return request.registry.siteroot
+    return request.registry.root
 
 
 def main(global_config, **settings):
@@ -30,14 +30,14 @@ def main(global_config, **settings):
         config.include('pyramid_watcher')
         config.scan()
 
-        # Stash an instance of the SiteRoot in the registry
-        siteroot = SiteRoot(title='Home Page')
-        config.registry.siteroot = siteroot
+        # Stash an instance of the Root in the registry
+        root = Root(title='Home Page')
+        config.registry.root = root
 
-        # Tell the SiteRoot to do its initial scan
-        siteroot.initialize(config.registry.settings['content_root'])
+        # Tell the Root to do its initial scan
+        root.initialize(config.registry.settings['content_root'])
 
-        # Let the siteroot handle changesets
-        config.register_changehandler(siteroot.handle_changeset)
+        # Let the root handle changesets
+        config.register_changehandler(root.handle_changeset)
 
     return config.make_wsgi_app()

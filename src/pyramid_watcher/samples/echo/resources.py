@@ -5,7 +5,7 @@ from pyramid_watcher.models import Changeset
 
 
 @dataclass
-class SiteRoot:
+class Root:
     title: str
     changesets: List[Changeset] = field(default_factory=list)
     __name__: str = ''
@@ -15,5 +15,5 @@ class SiteRoot:
         self.changesets.append(changeset)
 
 
-def bootstrap(request) -> SiteRoot:
-    return request.registry.siteroot
+def bootstrap(request) -> Root:
+    return request.registry.root

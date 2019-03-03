@@ -9,7 +9,7 @@ area.
 
 from pyramid.config import Configurator
 
-from .resources import bootstrap, SiteRoot
+from .resources import bootstrap, Root
 
 
 def main(global_config, **settings):
@@ -21,11 +21,11 @@ def main(global_config, **settings):
         config.include('pyramid_watcher')
         config.scan()
 
-        # Stash an instance of the SiteRoot in the registry
-        siteroot = SiteRoot(title='Home Page')
-        config.registry.siteroot = siteroot
+        # Stash an instance of the Root in the registry
+        root = Root(title='Home Page')
+        config.registry.root = root
 
-        # Let the siteroot handle changesets
-        config.register_changehandler(siteroot.handle_changeset)
+        # Let the root handle changesets
+        config.register_changehandler(root.handle_changeset)
 
     return config.make_wsgi_app()

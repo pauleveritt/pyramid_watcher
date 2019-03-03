@@ -8,7 +8,7 @@ log = __import__('logging').getLogger(__name__)
 
 
 @dataclass
-class SiteRoot:
+class Root:
     title: str
     changesets: List[Changeset] = field(default_factory=list)
     __name__: str = ''

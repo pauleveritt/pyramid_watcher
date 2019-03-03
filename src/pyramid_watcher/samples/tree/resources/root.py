@@ -11,7 +11,7 @@ log = __import__('logging').getLogger(__name__)
 
 
 @dataclass
-class SiteRoot(Mapping):
+class Root(Mapping):
     title: str
     changesets: List[Changeset] = field(default_factory=list)
     __name__ = ''

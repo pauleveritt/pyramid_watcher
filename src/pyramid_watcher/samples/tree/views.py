@@ -1,13 +1,13 @@
 from pyramid.view import view_config
 
-from .resources.siteroot import SiteRoot
+from .resources.root import Root
 from .resources.document import Document
 
 log = __import__('logging').getLogger(__name__)
 
 
-@view_config(context=SiteRoot, renderer='templates/siteroot.jinja2')
-def siteroot(context: SiteRoot, request):
+@view_config(context=Root, renderer='templates/root.jinja2')
+def root(context: Root, request):
     children = list(context.values())
     return dict(
         project='Tree Sample',

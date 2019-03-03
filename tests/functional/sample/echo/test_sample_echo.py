@@ -2,7 +2,7 @@ from datetime import datetime
 
 from bs4 import BeautifulSoup
 from pyramid_watcher.models import Changeset, ChangesetEntry
-from pyramid_watcher.samples.echo import SiteRoot
+from pyramid_watcher.samples.echo import Root
 from pyramid_watcher.watchgod_watcher import FileChangeInfo
 from pytest import fixture
 
@@ -24,13 +24,13 @@ def test_functional_home(testapp):
 
 def test_functional_home_changesets(testapp, dummy_changeset):
     # Broadcast some changes, see if picked up
-    siteroot: SiteRoot = testapp.app.registry.siteroot
+    root: Root = testapp.app.registry.root
 
     # First, ensure no entries
     soup: BeautifulSoup = testapp.get('/', status=200).html
     assert 0 == len(soup.select('li.changeset'))
 
     # Broadcast then try again
-    siteroot.handle_changeset(dummy_changeset)
+    root.handle_changeset(dummy_changeset)
     soup: BeautifulSoup = testapp.get('/', status=200).html
     assert 1 == len(soup.select('li.changeset'))

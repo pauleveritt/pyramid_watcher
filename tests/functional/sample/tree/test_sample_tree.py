@@ -1,10 +1,10 @@
 from bs4 import BeautifulSoup
 
 
-def test_functional_siteroot(testapp):
+def test_functional_root(testapp):
     soup: BeautifulSoup = testapp.get('/', status=200).html
     assert 'Home Page - Tree Sample' == soup.select_one('title').get_text().strip()
-    assert 'SiteRoot: Home Page' == soup.select_one('h1.title').get_text().strip()
+    assert 'Root: Home Page' == soup.select_one('h1.title').get_text().strip()
 
     nav = soup.select_one('nav > a')
     assert 'Home' == nav.get_text().strip()
