@@ -27,7 +27,7 @@ def dummy_tmpdir(tmpdir):
 
 @fixture
 def dummy_root() -> Root:
-    yield Root(title='Dummy Siteroot')
+    yield Root(name='', parent=None, title='Dummy Siteroot')
 
 
 @fixture

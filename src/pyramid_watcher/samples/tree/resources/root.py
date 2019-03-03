@@ -1,35 +1,17 @@
-from collections import Mapping
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
 
 from pyramid_watcher.models import Changeset
+
 from .processors import PROCESSORS
+from .base_resources import Folder
 
 log = __import__('logging').getLogger(__name__)
 
 
 @dataclass
-class Root(Mapping):
-    title: str
-    __name__ = ''
-    __parent__: Optional[str] = None
-
-    def __post_init__(self):
-        """ Make this a dictionary-like object that can contain things """
-        self._dict = {}
-
-    def __getitem__(self, key):
-        return self._dict[key]
-
-    def __setitem__(self, key, value):
-        self._dict[key] = value
-
-    def __iter__(self):
-        return iter(self._dict)
-
-    def __len__(self):
-        return len(self._dict)
+class Root(Folder):
+    """ This is a special kind of folder with parent of none """
 
     @staticmethod
     def add_resource(target: Path, parent):

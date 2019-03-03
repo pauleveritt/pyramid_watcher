@@ -12,7 +12,7 @@ from typing import Optional
 from ruamel.yaml import load, Loader
 from mistletoe import markdown
 
-from .base_resource import Resource
+from .base_resources import Resource
 from .document import Document
 
 log = __import__('logging').getLogger(__name__)

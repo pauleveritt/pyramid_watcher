@@ -7,7 +7,7 @@ HTML body. Can originate from ``.md`` files.
 
 from dataclasses import dataclass
 
-from .base_resource import Resource
+from .base_resources import Resource
 
 
 @dataclass
