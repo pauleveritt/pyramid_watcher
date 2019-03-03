@@ -14,7 +14,7 @@ log = __import__('logging').getLogger(__name__)
 class SiteRoot(Mapping):
     title: str
     changesets: List[Changeset] = field(default_factory=list)
-    __name__: str = ''
+    __name__ = ''
     __parent__: Optional[str] = None
 
     def __post_init__(self):

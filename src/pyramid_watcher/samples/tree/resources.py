@@ -24,7 +24,3 @@ class SiteRoot:
             log.info('Blah')
             for filename in files:
                 log.info('Found file:' + filename)
-
-
-def bootstrap(request):
-    return request.registry.siteroot

@@ -2,13 +2,13 @@
 
 {% block content %}
     <h1 class="title">
-        Document: {{ context.title }}
+        SiteRoot: {{ context.title }}
     </h1>
     <h2>Children</h2>
     <ul>
         {% for child in children %}
             <li>
-                <a href="{{ request.resource_url(child) }}">{{ child.title }}, {{ request.resource_url(child) }}</a>
+                <a href="{{ request.resource_url(child) }}">{{ child.title }}</a>
             </li>
         {% endfor %}
     </ul>
