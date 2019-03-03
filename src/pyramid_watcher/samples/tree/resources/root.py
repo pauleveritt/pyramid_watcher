@@ -44,7 +44,7 @@ class Root(Mapping):
     def handle_changeset(self, changeset: Changeset):
 
         for change in changeset.changes:
-            target = Path(change.file_path)
+            target = change.file_path
             self.add_resource(target, self)
 
     def initialize(self, content_root: Path):

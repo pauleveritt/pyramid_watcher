@@ -9,6 +9,7 @@ here to avoid circular references.
 
 from datetime import datetime
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Set
 
 from pyramid_watcher.watchgod_watcher import FileChangeInfo
@@ -19,7 +20,7 @@ class ChangesetEntry:
     """ One changed file entry in a changeset """
 
     change_type: FileChangeInfo
-    file_path: str
+    file_path: Path
 
 
 @dataclass(frozen=True)

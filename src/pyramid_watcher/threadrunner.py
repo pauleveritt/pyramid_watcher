@@ -35,7 +35,7 @@ class ThreadRunner(Thread):
             if changes:
                 timestamp = datetime.now()
                 changeset = Changeset(timestamp=timestamp, changes={
-                    ChangesetEntry(change_type=i[0], file_path=i[1])
+                    ChangesetEntry(change_type=i[0], file_path=Path(i[1]))
                     for i in changes
                 })
                 self.callback(changeset)
