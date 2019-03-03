@@ -31,7 +31,8 @@ class Root(Mapping):
     def __len__(self):
         return len(self._dict)
 
-    def add_resource(self, target: Path, parent):
+    @staticmethod
+    def add_resource(target: Path, parent):
         """ Given a path from first-scan or changeset, add/replace in tree """
 
         extension = target.suffix[1:]
