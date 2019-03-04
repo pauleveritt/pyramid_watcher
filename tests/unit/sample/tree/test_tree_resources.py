@@ -18,7 +18,7 @@ def test_resources_initialize(dummy_request, dummy_tmpdir, mocker):
 def test_resources_add_resource(dummy_request, dummy_tmpdir):
     root = dummy_request.registry.root
     target = dummy_tmpdir / Path('hello.md')
-    root.add_resource(target, root)
+    root.add_resource(target)
     hello: Document = root['hello']
     assert 'Some Dummy Doc' == hello.title
 

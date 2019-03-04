@@ -16,6 +16,7 @@ from pathlib import Path
 from pyramid.config import Configurator
 from pyramid.request import Request
 
+from .handlers import ChangesetHandler
 from .resources.root import Root
 
 
@@ -33,14 +34,15 @@ def main(global_config, **settings):
         config.scan()
 
         # Stash an instance of the Root in the registry
-        root = Root(title='Home Page')
+        root = Root(name='', parent=None, title='Home Page')
         config.registry.root = root
 
         # Tell the Root to do its initial scan
         content_root = Path(config.registry.settings['content_root'])
         root.initialize(content_root)
 
-        # Let the root handle changesets
-        config.register_changehandler(root.handle_changeset)
+        # Make a custom change handler instance and register it
+        ch = ChangesetHandler(config)
+        config.register_changehandler(ch)
 
     return config.make_wsgi_app()
