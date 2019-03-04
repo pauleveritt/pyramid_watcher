@@ -1,7 +1,7 @@
 [run]
 source = pyramid_watcher
 omit =
-    .venv/*
-    docs/*
+    */.venv/*
+    */docs/*
     tests/*
     */.pytest_cache/*

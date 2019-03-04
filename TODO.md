@@ -4,9 +4,24 @@
 
 ## Next
 
+- Process documents and directories correctly
+
+  - Make the Folder with index.md before trying to put other items in 
+    the folder
+    
+  - If no index.md, make a folder with the filename as the title
+  
+  - Handle subdirs
+  
+  - Handle deletes, changes as well as adds
+  
+- Broadcast the mtime information  
+
 ## Soon
 
 - Don't hardwire `watchgod_watcher.DefaultDirWatcher` in threadrunner
+
+- Get `bootstrap` out of echo
 
 ## Someday
 
