@@ -34,7 +34,7 @@ def main(global_config, **settings):
         config.scan()
 
         # Stash an instance of the Root in the registry
-        root = Root(name='', parent=None, title='Home Page', body='')
+        root = Root(name='', parent=None, title='Home Page')
         config.registry.root = root
 
         # Get the path to the content root
