@@ -1,7 +1,4 @@
-from pathlib import Path
-
 from pyramid_watcher.samples.tree.resources.base_resources import Folder, Resource
-from pyramid_watcher.samples.tree.resources.document import Document
 
 
 def test_resources_root(dummy_root):

@@ -29,6 +29,7 @@ class Resource:
 class Folder(Resource, Mapping):
     parent: Optional[Resource]
     title: str
+    body: str
 
     def __post_init__(self):
         """ Make this a dictionary-like object that can contain things """

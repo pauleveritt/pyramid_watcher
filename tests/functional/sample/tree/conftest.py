@@ -4,9 +4,7 @@ from pytest_toolbox import mktree
 from webtest import TestApp
 
 tree = {
-    'foo': {
-        'about.md': 'title: Some Dummy Doc\n---\nWe are *here*.',
-    }
+    'about.md': 'title: Some Dummy Doc\n---\nWe are *here*.',
 }
 
 

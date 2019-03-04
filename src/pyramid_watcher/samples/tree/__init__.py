@@ -34,15 +34,17 @@ def main(global_config, **settings):
         config.scan()
 
         # Stash an instance of the Root in the registry
-        root = Root(name='', parent=None, title='Home Page')
+        root = Root(name='', parent=None, title='Home Page', body='')
         config.registry.root = root
 
+        # Get the path to the content root
+        content_root = Path(config.registry.settings['content_root'])
+
         # Make a custom change handler instance and register it
-        ch = ChangesetHandler(config)
+        ch = ChangesetHandler(config, root, content_root)
         config.register_changehandler(ch)
 
-        # Tell the change handler to do an initial scan
-        content_root = Path(config.registry.settings['content_root'])
-        ch.initialize(content_root)
+        # Now initialize
+        ch.initialize()
 
     return config.make_wsgi_app()
