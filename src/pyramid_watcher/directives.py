@@ -18,4 +18,5 @@ class ChangeHandler:
 
 def register_changehandler(config: Configurator, handler: Callable):
     """ Stash the callable in the config """
-    config.registry.settings['pyramid_watcher_handler'] = handler
+
+    config.registry.change_handler = handler

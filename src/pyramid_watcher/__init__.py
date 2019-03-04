@@ -10,7 +10,7 @@ def includeme(config: Configurator):
     # new Changeset. There should only be one. A default is provided
     # but it can be overridden with the directive.
     ch = ChangeHandler(config)
-    config.registry.settings['pyramid_watcher_handler'] = ch
+    config.registry.change_handler = ch
     config.add_directive('register_changehandler', register_changehandler)
 
     # The Threadrunner watches changes on disk and calls the callback.

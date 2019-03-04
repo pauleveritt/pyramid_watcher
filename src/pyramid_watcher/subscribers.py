@@ -21,7 +21,7 @@ def start_threadrunner(event: ApplicationCreated):
     content_root = Path(settings.get('content_root'))
 
     # Get the change handler from the registry settings
-    handler = registry.settings['pyramid_watcher_handler']
+    handler = registry.change_handler
 
     # Make the watcher and put it in the registry
     watcher = ThreadRunner(handler, content_root, interval=int(watch_interval))

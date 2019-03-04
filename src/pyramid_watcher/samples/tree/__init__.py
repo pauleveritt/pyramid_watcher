@@ -37,12 +37,12 @@ def main(global_config, **settings):
         root = Root(name='', parent=None, title='Home Page')
         config.registry.root = root
 
-        # Tell the Root to do its initial scan
-        content_root = Path(config.registry.settings['content_root'])
-        root.initialize(content_root)
-
         # Make a custom change handler instance and register it
         ch = ChangesetHandler(config)
         config.register_changehandler(ch)
+
+        # Tell the change handler to do an initial scan
+        content_root = Path(config.registry.settings['content_root'])
+        ch.initialize(content_root)
 
     return config.make_wsgi_app()
