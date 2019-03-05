@@ -18,6 +18,7 @@ from pyramid.request import Request
 
 from .handlers import ChangesetHandler
 from .resources.root import Root
+from .views import livereload_view
 
 
 def root_factory(request: Request):
@@ -46,5 +47,13 @@ def main(global_config, **settings):
 
         # Now initialize
         ch.initialize()
+
+        # SSE: livreload view, static view for the JS asset
+        config.add_route('livereload', '/livereload')
+        config.add_view(route_name='livereload', view=livereload_view)
+        config.add_static_view(
+            name='watcher_static',
+            path='pyramid_watcher:static'
+        )
 
     return config.make_wsgi_app()

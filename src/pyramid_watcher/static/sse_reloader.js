@@ -1,7 +1,6 @@
-const debug = true;
+const debug = false;
 
 const source = new EventSource('/livereload');
-console.log('Loaded EventSource script');
 
 let last_modified;
 
@@ -24,7 +23,15 @@ source.addEventListener('error', e => {
 source.addEventListener('new_request', e => {
     const data = JSON.parse(e.data);
     if (data && data.last_modified) {
-        console.log('Time to reload', data.last_modified);
-        // last_modified = data.last_modified;
+        // First time through, get and store the value, but don't reload.
+        if (!last_modified) {
+            last_modified = data.last_modified;
+        } else {
+            if (data.last_modified !== last_modified) {
+                // We've done one pass through and things have
+                // changed, so...let's reload.
+                window.location.reload(true);
+            }
+        }
     }
 }, false);

@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from pyramid.config import Configurator
@@ -15,6 +16,7 @@ class ChangesetHandler:
         self.config = config
         self.root = root
         self.content_root = content_root
+        self.last_modified = datetime.now()
 
     def add_resource(self, target: Path):
         """ Given a path from first-scan or changeset, add/replace in tree """
@@ -41,3 +43,7 @@ class ChangesetHandler:
         for change in changeset.changes:
             target = change.file_path
             self.add_resource(target)
+
+        # Record this changeset's modification time on the change handler
+        # so SSE can return it to the browser.
+        self.last_modified = changeset.timestamp
