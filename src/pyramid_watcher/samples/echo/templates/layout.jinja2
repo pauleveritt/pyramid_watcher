@@ -11,5 +11,7 @@
         <p>No content</p>
     {% endblock content %}
 </main>
+<script src="{{ request.static_url('pyramid_watcher:static/sse_reloader.js') }}"
+        defer="defer"></script>
 </body>
 </html>
