@@ -20,6 +20,7 @@ docs_require = [
 
 tests_require = [
     'pytest',
+    'pytest-cov',
     'mock',
     'pytest_toolbox',
     'WebTest'
